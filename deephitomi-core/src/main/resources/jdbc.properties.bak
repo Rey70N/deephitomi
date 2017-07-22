@@ -1,0 +1,4 @@
+jdbc.driverClass=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://192.168.200.130:3306/seecloud?useUnicode=true&amp;characterEncoding=utf8
+jdbc.user=root
+jdbc.password=Reyton1024
