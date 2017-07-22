@@ -10,4 +10,6 @@ Introduction
 Documentation
 ---
 
-- No
+- English:No
+- 简体中文:No
+- 繁體中文:No
