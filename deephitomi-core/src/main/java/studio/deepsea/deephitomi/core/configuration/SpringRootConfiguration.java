@@ -1,4 +1,4 @@
-package deephitomi.configuration;
+package studio.deepsea.deephitomi.core.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

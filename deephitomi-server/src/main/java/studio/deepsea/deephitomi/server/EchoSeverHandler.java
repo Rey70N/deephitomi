@@ -1,4 +1,4 @@
-package deephitomi.server;
+package studio.deepsea.deephitomi.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

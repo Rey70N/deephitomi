@@ -1,4 +1,4 @@
-package deephitomi.client;
+package studio.deepsea.deephitomi.client.configuration;
 
 import studio.deepsea.deephitomi.client.utils.ConfigEntity;
 import studio.deepsea.deephitomi.client.utils.Log;

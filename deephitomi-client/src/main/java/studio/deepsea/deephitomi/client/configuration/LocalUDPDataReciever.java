@@ -1,4 +1,4 @@
-package deephitomi.client;
+package studio.deepsea.deephitomi.client.configuration;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

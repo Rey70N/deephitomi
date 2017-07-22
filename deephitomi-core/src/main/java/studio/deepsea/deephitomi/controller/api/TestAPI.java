@@ -1,4 +1,4 @@
-package deephitomi.controller.api;
+package studio.deepsea.deephitomi.controller.api;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpHeaders;

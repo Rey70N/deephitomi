@@ -11,4 +11,11 @@
 
     <artifactId>deephitomi-server</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>studio.deepsea</groupId>
+            <artifactId>deephitomi-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

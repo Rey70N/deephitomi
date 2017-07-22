@@ -1,9 +1,9 @@
-package deephitomi.client.utils;
+package studio.deepsea.deephitomi.client.utils;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-import studio.deepsea.deephitomi.client.LocalUDPSocketProvider;
+import studio.deepsea.deephitomi.client.configuration.LocalUDPSocketProvider;
 
 public class UDPUtils
 {

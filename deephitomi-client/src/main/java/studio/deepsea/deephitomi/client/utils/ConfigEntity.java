@@ -9,7 +9,7 @@
  * ConfigEntity.java at 2016-2-20 11:25:57, code by Jack Jiang.
  * You can contact author with jack.jiang@52im.net or jb2011@163.com.
  */
-package deephitomi.client.utils;
+package studio.deepsea.deephitomi.client.utils;
 
 public class ConfigEntity
 {

@@ -1,11 +1,23 @@
-package deephitomi.client;
+package studio.deepsea.deephitomi.client;
 
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+import studio.deepsea.deephitomi.client.configuration.LocalUDPDataReciever;
+import studio.deepsea.deephitomi.client.configuration.LocalUDPSocketProvider;
 import studio.deepsea.deephitomi.client.utils.Log;
 import studio.deepsea.deephitomi.client.utils.UDPUtils;
 
-public class EchoClient {
-    public static void main(String[] args) throws Exception
-    {
+@EnableAutoConfiguration
+@ComponentScan(basePackages={"studio.deepsea.deephitomi.client.*"})
+public class Application {
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+        echoClient();
+    }
+
+    public static void echoClient() throws Exception{
         // 初始化本地UDP的Socket
         LocalUDPSocketProvider.getInstance().initSocket();
         // 启动本地UDP监听（接收数据用的）

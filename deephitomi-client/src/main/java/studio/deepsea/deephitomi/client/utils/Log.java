@@ -1,4 +1,4 @@
-package deephitomi.client.utils;
+package studio.deepsea.deephitomi.client.utils;
 
 import java.awt.Color;
 import java.util.Date;
