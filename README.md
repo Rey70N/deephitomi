@@ -1,3 +1,4 @@
 # deephitomi
 
-###THIS ! IS ! NOOB ! PROJECT !
+THIS IS NOOB PROJECT
+====  
