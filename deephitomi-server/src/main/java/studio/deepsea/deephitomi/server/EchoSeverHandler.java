@@ -6,17 +6,21 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.util.CharsetUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EchoSeverHandler extends SimpleChannelInboundHandler<DatagramPacket> {
+    private static final Logger LOG = LoggerFactory.getLogger(EchoSeverHandler.class);
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket packet)
             throws Exception {
         // 读取收到的数据
-        ByteBuf buf = (ByteBuf) packet.copy().content();
+        ByteBuf buf = packet.copy().content();
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
         String body = new String(req, CharsetUtil.UTF_8);
-        System.out.println("【NOTE】>>>>>> 收到客户端的数据：" + body);
+        LOG.info("【NOTE】>>>>>> 收到客户端的数据：" + body);
+        //System.out.println("【NOTE】>>>>>> 收到客户端的数据：" + body);
 
         // 回复一条信息给客户端
         ctx.writeAndFlush(new DatagramPacket(

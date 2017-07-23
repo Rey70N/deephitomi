@@ -1,13 +1,15 @@
 package studio.deepsea.deephitomi.client.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import studio.deepsea.deephitomi.client.configuration.LocalUDPSocketProvider;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
-import studio.deepsea.deephitomi.client.configuration.LocalUDPSocketProvider;
-
 public class UDPUtils
 {
-	private static final String TAG = UDPUtils.class.getSimpleName();
+    private static final Logger LOG = LoggerFactory.getLogger(UDPUtils.class);
 
 	public static boolean send(byte[] fullProtocalBytes, int dataLen)
 	{
@@ -22,22 +24,21 @@ public class UDPUtils
 			try
 			{
 				return send(skt, new DatagramPacket(d, dataLen
-//						, InetAddress.getByName(ConfigEntity.serverIP), ConfigEntity.serverUDPPort
-						));
-			}
-			catch (Exception e)
-			{
-				Log.e(TAG, "【IMCORE】send方法中》》发送UDP数据报文时出错了：remoteIp="+skt.getInetAddress()
-						+", remotePort="+skt.getPort()+".原因是："+e.getMessage(), e);
-				return false;
-			}
-		}
-		else
-		{
-			Log.e(TAG, "【IMCORE】send方法中》》无效的参数：skt="+skt);//
-			return false;
-		}
-	}
+                        //, InetAddress.getByName(ConfigEntity.serverIP), ConfigEntity.serverUDPPort
+                ));
+            } catch (Exception e) {
+                //Log.e(TAG, "【IMCORE】send方法中》》发送UDP数据报文时出错了：remoteIp="+skt.getInetAddress()
+                //		+", remotePort="+skt.getPort()+".原因是："+e.getMessage(), e);
+                LOG.error("【IMCORE】send方法中》》发送UDP数据报文时出错了：remoteIp=" + skt.getInetAddress()
+                        + ", remotePort=" + skt.getPort() + ".原因是：" + e.getMessage(), e);
+                return false;
+            }
+        } else {
+            //Log.e(TAG, "【IMCORE】send方法中》》无效的参数：skt="+skt);
+            LOG.error("【IMCORE】send方法中》》无效的参数：skt=" + skt);
+            return false;
+        }
+    }
 
 	private static synchronized boolean send(DatagramSocket skt, DatagramPacket p)
 	{
@@ -53,14 +54,14 @@ public class UDPUtils
 				catch (Exception e)
 				{
 					sendSucess = false;
-					Log.e(TAG, "【IMCORE】send方法中》》发送UDP数据报文时出错了，原因是：" + e.getMessage(), e);
-				}
-			}
-		}
-		else
-		{
-			Log.w(TAG, "【IMCORE】在send()UDP数据报时没有成功执行，原因是：skt==null || p == null!");
-		}
+                    //Log.e(TAG, "【IMCORE】send方法中》》发送UDP数据报文时出错了，原因是：" + e.getMessage(), e);
+                    LOG.error("【IMCORE】send方法中》》发送UDP数据报文时出错了，原因是：" + e.getMessage(), e);
+                }
+            }
+        } else {
+            //Log.w(TAG, "【IMCORE】在send()UDP数据报时没有成功执行，原因是：skt==null || p == null!");
+            LOG.warn("【IMCORE】在send()UDP数据报时没有成功执行，原因是：skt==null || p == null!");
+        }
 
 		return sendSucess;
 	}
